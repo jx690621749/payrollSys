@@ -1,19 +1,51 @@
 package server;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.io.Serializable;
 import java.util.Vector;
+import dao.salaryitem;
+import dao.salaryitemclass;
 
 
 public class MessagePack implements Serializable {
     private static final long serialVersionUID = 1L;
-    public String orderType;
-    public Boolean isChanged = false;
-    public Vector<String> strPack  = new Vector<String>();
-    public Vector<Boolean> booleanResult = new Vector<Boolean>();
-    public String taskType;
-    public MessagePack(){}
+    private String orderType;
+    private Boolean isChanged = false;
+    private Vector<String> strPack  = new Vector<String>();
+    private Vector<Boolean> booleanResult = new Vector<Boolean>();
+    private String taskType;
+    private LinkedList<salaryitemclass>  salaryitemList= new LinkedList<salaryitemclass>();
+    
+    
+    public LinkedList<salaryitemclass> getSalaryitemList() {
+		return salaryitemList;
+	}
+
+	public void setSalaryitemList(LinkedList<salaryitemclass> salaryitemList) {
+		this.salaryitemList = salaryitemList;
+	}
+
+	public Boolean getIsChanged() {
+		return isChanged;
+	}
+
+	public void setIsChanged(Boolean isChanged) {
+		this.isChanged = isChanged;
+	}
+
+	public Vector<Integer> getIntPack() {
+		return intPack;
+	}
+
+	public void setIntPack(Vector<Integer> intPack) {
+		this.intPack = intPack;
+	}
+
+	public MessagePack(){}
+    public Vector<Integer> intPack = new Vector<Integer>();
+    
 
     public MessagePack(String ot) {
         this.orderType = ot;
