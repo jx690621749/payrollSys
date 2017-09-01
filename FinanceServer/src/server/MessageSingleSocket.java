@@ -25,7 +25,10 @@ public class MessageSingleSocket extends Thread{
             System.out.println(orderType);
             switch(orderType){
             case "0000":
-            	System.out.println(mp.getBooleanResult());
+            	System.out.println("0000 on server.");
+            	System.out.println(mp.getBooleanResult().size());
+            	System.out.println("origion:"+mp.getBooleanResult().get(0));
+            	mp.booleanResult.add(true);
             	mp.setOrderType("3332");
                 os.writeObject(mp);  
                 os.flush();
@@ -33,6 +36,7 @@ public class MessageSingleSocket extends Thread{
             case "0001":        	
 
             }
+            
             socket.close();
             System.out.println("socke closed¡£");
 
